@@ -169,6 +169,7 @@ public class Matrix implements IMatrix {
         }
     }
 
+
     // Helper method to compute the cofactor matrix
     private IMatrix cofactor(int row, int col) {
         Matrix cofactorMatrix = new Matrix(this.getRows() - 1, this.getColumns() - 1);
