@@ -2,9 +2,10 @@ package lesson15;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
-public class CollectionUtilsImpl implements CollectionUtils{
+public class CollectionUtilsImpl implements CollectionUtils {
     @Override
     public Collection<Integer> union(Collection<Integer> a, Collection<Integer> b) throws NullPointerException {
         ArrayList<Integer> result = new ArrayList<>();
@@ -16,13 +17,13 @@ public class CollectionUtilsImpl implements CollectionUtils{
     @Override
     public Collection<Integer> intersection(Collection<Integer> a, Collection<Integer> b) throws NullPointerException {
         ArrayList<Integer> result = new ArrayList<>();
-        for (Integer numFromA: a){
-            if(b.contains(numFromA)){
+        for (Integer numFromA : a) {
+            if (b.contains(numFromA)) {
                 result.add(numFromA);
             }
         }
-        for (Integer numFromB: b){
-            if(a.contains(numFromB)){
+        for (Integer numFromB : b) {
+            if (a.contains(numFromB)) {
                 result.add(numFromB);
             }
         }
@@ -31,16 +32,42 @@ public class CollectionUtilsImpl implements CollectionUtils{
 
     @Override
     public Set<Integer> unionWithoutDuplicate(Collection<Integer> a, Collection<Integer> b) throws NullPointerException {
-        return null;
+        Set<Integer> result = new HashSet<>();
+        for (Integer numFromA : a) {
+            result.add(numFromA);
+        }
+        for (Integer numFromB : b) {
+            if (!a.contains(numFromB)) {
+                result.add(numFromB);
+            }
+        }
+        return result;
     }
 
     @Override
     public Set<Integer> intersectionWithoutDuplicate(Collection<Integer> a, Collection<Integer> b) throws NullPointerException {
-        return null;
+        Set<Integer> result = new HashSet<>();
+        for (Integer numFromA : a) {
+            if (b.contains(numFromA)) {
+                result.add(numFromA);
+            }
+        }
+        return result;
     }
 
     @Override
     public Collection<Integer> difference(Collection<Integer> a, Collection<Integer> b) throws NullPointerException {
-        return null;
+        Set<Integer> result = new HashSet<>();
+        for (Integer numFromA : a) {
+            if (!b.contains(numFromA)) {
+                result.add(numFromA);
+            }
+        }
+        for (Integer numFromB : b) {
+            if (!a.contains(numFromB)) {
+                result.add(numFromB);
+            }
+        }
+        return result;
     }
 }
