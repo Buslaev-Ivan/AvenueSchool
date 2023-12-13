@@ -1,13 +1,15 @@
 package Lesson16;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.*;
+import java.util.stream.Stream;
 
 public class Holodilnik {
+
+
     private HashMap<String, Integer> products = new HashMap<>();
     private SortedMap<String, Integer> sortedProducts = new TreeMap<>(); //разобратся. обязательно зарезервировать память
+    ValueComparator bvc = new ValueComparator(products);
+    TreeMap<String, Integer> sortedValueProducts = new TreeMap<String, Integer>(bvc);
 
     public void addProduct(String nameOfProduct, int value) {
         if (products.containsKey(nameOfProduct)) {
@@ -67,6 +69,15 @@ public class Holodilnik {
             System.out.println(productName + "-" + sortedProducts.get(productName));
         }
         System.out.println();
+    }
+
+    public void printSortValues(){
+        sortedValueProducts.putAll(products);
+        System.out.println(sortedValueProducts);// для наглядности отработки
+//        for (String productName : sortedValueProducts.keySet()) {            выводит null
+//            System.out.println(productName + "-" + sortedValueProducts.get(productName));
+//        }
+//        System.out.println();
     }
 
     public void printAllProducts() {
