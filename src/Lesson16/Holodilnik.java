@@ -1,15 +1,9 @@
 package Lesson16;
 
 import java.util.*;
-import java.util.stream.Stream;
 
 public class Holodilnik {
-
-
     private HashMap<String, Integer> products = new HashMap<>();
-    private SortedMap<String, Integer> sortedProducts = new TreeMap<>(); //разобратся. обязательно зарезервировать память
-    ValueComparator bvc = new ValueComparator(products);
-    TreeMap<String, Integer> sortedValueProducts = new TreeMap<String, Integer>(bvc);
 
     public void addProduct(String nameOfProduct, int value) {
         if (products.containsKey(nameOfProduct)) {
@@ -39,7 +33,7 @@ public class Holodilnik {
         System.out.println();
     }
 
-    public void shortage() {
+    public void printShortage() {
         String shortageProductName = "";
         int shortageCount = 2147483647; //костыль. взял максимальный размер int
         for (String productName : products.keySet()) {
@@ -53,7 +47,7 @@ public class Holodilnik {
         System.out.println();
     }
 
-    public void allCount() {
+    public void printAllCount() {
         int allCount = 0;
         for (String productName : products.keySet()) {
             allCount += products.get(productName);
@@ -63,6 +57,7 @@ public class Holodilnik {
     }
 
     public void printSortProducts() {
+        SortedMap<String, Integer> sortedProducts = new TreeMap<>();
         sortedProducts.putAll(products);
         System.out.println(sortedProducts); // для наглядности отработки
         for (String productName : sortedProducts.keySet()) {
@@ -72,12 +67,14 @@ public class Holodilnik {
     }
 
     public void printSortValues(){
+        ValueComparator bvc = new ValueComparator(products);
+        TreeMap<String, Integer> sortedValueProducts = new TreeMap<String, Integer>(bvc);
         sortedValueProducts.putAll(products);
         System.out.println(sortedValueProducts);// для наглядности отработки
-//        for (String productName : sortedValueProducts.keySet()) {            выводит null
-//            System.out.println(productName + "-" + sortedValueProducts.get(productName));
-//        }
-//        System.out.println();
+       for (String productName : sortedValueProducts.keySet()) {            //выводит null
+           System.out.println(productName + "-" + sortedValueProducts.get(productName));
+        }
+        System.out.println();
     }
 
     public void printAllProducts() {

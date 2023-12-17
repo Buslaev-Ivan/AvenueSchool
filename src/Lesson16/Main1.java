@@ -1,8 +1,5 @@
 package Lesson16;
 
-import java.util.Map;
-import java.util.TreeMap;
-
 public class Main1 {
     public static void main(String[] args) {
         Holodilnik holodilnik = new Holodilnik();
@@ -27,8 +24,8 @@ public class Main1 {
         holodilnik.giveProduct("Чай", 250);
         holodilnik.giveProduct("Слива", 4800);
         holodilnik.giveProduct("Сахар", 500);
-        holodilnik.shortage();
-        holodilnik.allCount();
+        holodilnik.printShortage();
+        holodilnik.printAllCount();
         holodilnik.printSortProducts();
         holodilnik.printSortValues();
 
