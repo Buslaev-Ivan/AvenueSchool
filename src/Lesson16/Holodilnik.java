@@ -57,8 +57,7 @@ public class Holodilnik {
     }
 
     public void printSortProducts() {
-        SortedMap<String, Integer> sortedProducts = new TreeMap<>();
-        sortedProducts.putAll(products);
+        SortedMap<String, Integer> sortedProducts = new TreeMap<>(products);
         System.out.println(sortedProducts); // для наглядности отработки
         for (String productName : sortedProducts.keySet()) {
             System.out.println(productName + "-" + sortedProducts.get(productName));
@@ -68,11 +67,11 @@ public class Holodilnik {
 
     public void printSortValues(){
         ValueComparator bvc = new ValueComparator(products);
-        TreeMap<String, Integer> sortedValueProducts = new TreeMap<String, Integer>(bvc);
+        TreeMap<String, Integer> sortedValueProducts = new TreeMap<>(bvc);
         sortedValueProducts.putAll(products);
         System.out.println(sortedValueProducts);// для наглядности отработки
-       for (String productName : sortedValueProducts.keySet()) {            //выводит null
-           System.out.println(productName + "-" + sortedValueProducts.get(productName));
+       for (Map.Entry<String, Integer> productName : sortedValueProducts.entrySet()) {            //выводит null
+           System.out.println(productName.getKey() + "-" + productName.getValue());
         }
         System.out.println();
     }

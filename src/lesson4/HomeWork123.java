@@ -12,8 +12,8 @@ public class HomeWork123 {
         }
 
         for (int i = 0; i < massive.length; i++) {
-            //íóæíî ïðåîáðàçîâàòü ÷èñëî â ðÿä ñèìâîëîâ
-            //êîíêàòåíàöèÿ ñòðîê = ñêëåèâàíèå òåêñòà
+            //Ð½ÑƒÐ¶Ð½Ð¾ Ð¿Ñ€ÐµÐ¾Ð±Ñ€Ð°Ð·Ð¾Ð²Ð°Ñ‚ÑŒ Ñ‡Ð¸ÑÐ»Ð¾ Ð² Ñ€ÑÐ´ ÑÐ¸Ð¼Ð²Ð¾Ð»Ð¾Ð²
+            //ÐºÐ¾Ð½ÐºÐ°Ñ‚ÐµÐ½Ð°Ñ†Ð¸Ñ ÑÑ‚Ñ€Ð¾Ðº = ÑÐºÐ»ÐµÐ¸Ð²Ð°Ð½Ð¸Ðµ Ñ‚ÐµÐºÑÑ‚Ð°
             String currentNumFromMassive = massive[i]+"";
             if (currentNumFromMassive.contains("5")) {
                 System.out.println(currentNumFromMassive);

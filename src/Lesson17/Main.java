@@ -6,15 +6,15 @@ public class Main {
 
 //        для проверки нужно разакоментировать нужные строки
 
-//        System.out.println("метод div, входные 10,5 - результат:" + testUtils.div("10", "5"));
+        System.out.println("метод div, входные 10,5 - результат:" + testUtils.div("10", "3"));
 //        System.out.println("метод div, входные 10,0 - результат:" + testUtils.div("10", "0"));
 //        System.out.println("метод div, входные 10,qwerty - результат:" + testUtils.div("10", "йцкуен"));
         System.out.println();
 
         System.out.println("метод findWord, входные -тект- Солнце светит высоко, Солнце светит далеко -слово- Солнце ");
         int[] index = testUtils.findWord("Солнце светит высоко, Солнце светит далеко ", "Солнце");
-        for (int i = 0; i < index.length; i++) {
-            System.out.println(index[i]);
+        for (int j : index) {
+            System.out.println(j);
         }
         System.out.println();
 
@@ -28,15 +28,15 @@ public class Main {
 
         System.out.println("метод findNumbers, входные: 2034.56 самолет 101, 505 свет 123.123 ");
 
+
         try {  //тут не очень понятно зачем настоял на трай катч
-            testUtils.findNumbers("2034.56 самолет 101, 505 свет 123.123");
-//            testUtils.findNumbers("самолет свет");
-            double[] numbers = testUtils.findNumbers("2034.56 самолет 101, 505 свет 123.123");
-            for (int i = 0; i < numbers.length; i++) {
-                System.out.println(numbers[i]);
+//            double[] numbers = testUtils.findNumbers("2034.56 самолет 101, 505 свет 123.123");
+            double[] numbers = testUtils.findNumbers("самолет свет");
+            for (double number : numbers) {
+                System.out.println(number);
             }
         } catch (CustomException e) {
-            throw new RuntimeException(e);
+            System.out.println(e);
         }
     }
 }
